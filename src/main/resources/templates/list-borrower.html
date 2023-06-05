@@ -5,14 +5,51 @@
   <meta charset="UTF-8">
   <title>Borrower List</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
     table {
+      width: 100%;
       border-collapse: collapse;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
     }
 
     th, td {
-      border: 1px solid black;
-      padding: 5px;
+      padding: 15px;
       text-align: left;
+    }
+
+    th {
+      background-color: #333;
+      color: #fff;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #ddd;
+    }
+
+    td:first-child {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    td:last-child {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
     }
   </style>
 </head>
@@ -31,7 +68,7 @@
     <tbody>
     <tr>
       <td>1111</td>
-      <td>ali</td>
+      <td>Ali</td>
       <td>aks@gmail.com</td>
       <td>01123234598</td>
       <td>USA</td>
