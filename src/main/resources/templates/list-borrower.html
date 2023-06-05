@@ -19,7 +19,8 @@
 
     table {
       width: 100%;
-      border-collapse: collapse;
+      border-collapse: separate;
+      border-spacing: 0 5px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
       background-color: #fff;
     }
@@ -27,6 +28,7 @@
     th, td {
       padding: 15px;
       text-align: left;
+      border-right: 1px solid #ddd;
     }
 
     th {
@@ -36,10 +38,6 @@
 
     tr:nth-child(even) {
       background-color: #f2f2f2;
-    }
-
-    tr:hover {
-      background-color: #ddd;
     }
 
     td:first-child {
@@ -77,5 +75,4 @@
   </table>
 </div>
 </body>
-
 </html>
