@@ -5,36 +5,71 @@
   <meta charset="UTF-8">
   <title>Borrower List</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
     table {
-      border-collapse: collapse;
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 5px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
     }
 
     th, td {
-      border: 1px solid black;
-      padding: 5px;
+      padding: 15px;
       text-align: left;
+      border-right: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #333;
+      color: #fff;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    td:first-child {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    td:last-child {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
     }
   </style>
 </head>
+
 <body>
 <div>
   <h1>Borrowers</h1>
   <table>
     <tr>
-      <th> Borrower Id</th>
-      <th> Name</th>
-      <th> Email</th>
-      <th> Phone Number</th>
-      <th> Address</th>
+      <th>Borrower Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Address</th>
     </tr>
     <tbody>
     <tr>
-      <td> 1111</td>
-      <td> ali</td>
-      <td> aks@gmail.com</td>
-      <td> 01123234598</td>
-      <td> USA</td>
-
+      <td>1111</td>
+      <td>Ali</td>
+      <td>aks@gmail.com</td>
+      <td>01123234598</td>
+      <td>USA</td>
     </tr>
     </tbody>
   </table>
