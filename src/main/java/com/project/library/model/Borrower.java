@@ -19,8 +19,6 @@ public class Borrower {
     @Column(name = "phone_number")
     private Integer phonenumber;
 
-
-
     public Borrower() {
     }
 
