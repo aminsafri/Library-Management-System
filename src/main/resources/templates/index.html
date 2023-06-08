@@ -44,10 +44,10 @@
         Book
       </button>
       <div class="dropdown-menu" aria-labelledby="bookDropdown">
-        <a class="dropdown-item" href="#">Show Book List</a>
-        <a class="dropdown-item" href="#">Add Book</a>
-        <a class="dropdown-item" href="#">Update Book</a>
-        <a class="dropdown-item" href="#">Delete Book</a>
+        <a class="dropdown-item" href="/books/list" th:href="@{/books/list}">List of Books</a>
+        <a class="dropdown-item" href="/books/signup" th:href="@{/books/signup}">New Book</a>
+        <a class="dropdown-item" href="/books/update" th:href="@{/books/update}">Update Book</a>
+        <a class="dropdown-item" href="/books/delete" th:href="@{/books/delete}">Delete Book</a>
       </div>
     </div>
   </div>
