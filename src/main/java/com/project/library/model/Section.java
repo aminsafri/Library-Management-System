@@ -19,7 +19,8 @@ public class Section {
     @Column(name = "location")
     private String location;
 
-
+    @ManyToMany(mappedBy = "sections")
+    private Set<Employee> staffs = new HashSet<>();
 
     @OneToMany(mappedBy = "section", cascade = CascadeType.ALL)
     private Set<Book> books;
