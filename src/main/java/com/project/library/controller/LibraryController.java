@@ -2,6 +2,7 @@ package com.project.library.controller;
 
 import com.project.library.model.Book;
 import com.project.library.repository.BookRepository;
+import com.project.library.repository.SectionRepository;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/books")
 public class LibraryController {
+
     private final BookRepository bookRepository;
 
-    public LibraryController(BookRepository bookRepository) {
+    private final SectionRepository sectionRepository;
+
+    public LibraryController(BookRepository bookRepository, SectionRepository sectionRepository) {
+
         this.bookRepository = bookRepository;
+        this.sectionRepository = sectionRepository;
     }
 
     @GetMapping("list")
@@ -27,7 +33,8 @@ public class LibraryController {
     }
 
     @GetMapping("signup")
-    public String showSignUpForm(Book book){
+    public String showSignUpForm(Book book, Model model){
+        model.addAttribute("sections", sectionRepository.findAll());
         return "add-book";
     }
 
@@ -53,7 +60,7 @@ public class LibraryController {
         Book book = bookRepository.findById((int) id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid book Id:" + id));
         model.addAttribute("book", book);
-        //model.addAttribute("borrowers", borrowerRepository.findAll());
+        model.addAttribute("sections", sectionRepository.findAll());
         return "update-book";
     }
 
