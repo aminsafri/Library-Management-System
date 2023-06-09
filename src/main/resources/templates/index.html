@@ -57,13 +57,12 @@
         Borrower
       </button>
       <div class="dropdown-menu" aria-labelledby="borrowerDropdown">
-        <a class="dropdown-item" href="#">Show Borrower List</a>
-        <a class="dropdown-item" href="#">Add Borrower</a>
-        <a class="dropdown-item" href="#">Update Borrower</a>
-        <a class="dropdown-item" href="#">Delete Borrower</a>
+        <a class="dropdown-item" href="/books/listborrower" th:href="@{/books/listborrower}">Show Borrower List</a>
+        <a class="dropdown-item" href="/books/signupborrower" th:href="@{/books/signupborrower}">Add Borrower</a>
+        <a class="dropdown-item" href="/books/" th:href="@{/books/}">Update Borrower</a>
+        <a class="dropdown-item" href="/books/" th:href="@{/books/}">Delete Borrower</a>
       </div>
     </div>
-
     <div class="dropdown">
       <button class="btn btn-primary dropdown-toggle dropdown-button" type="button" id="sectionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Section

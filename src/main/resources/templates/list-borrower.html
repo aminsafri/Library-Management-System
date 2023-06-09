@@ -62,16 +62,15 @@
       <th>Last Name</th>
       <th>Email</th>
       <th>Phone Number</th>
-      <th>Address</th>
     </tr>
     <tbody>
-    <tr>
-      <td>1111</td>
-      <td>Ali</td>
-      <td>Abu</td>
-      <td>aks@gmail.com</td>
-      <td>01123234598</td>
-      <td>USA</td>
+    </tr>
+    <tr th:each="borrower : ${borrowers}">
+      <td><span th:text="${borrower.borrowerId}"> </span></td>
+      <td><span th:text="${borrower.fname}"> </span></td>
+      <td><span th:text="${borrower.lname}"> </span></td>
+      <td><span th:text="${borrower.email}"> </span></td>
+      <td><span th:text="${borrower.phonenumber}"> </span></td>
     </tr>
     </tbody>
   </table>

@@ -1,7 +1,9 @@
 package com.project.library.controller;
 
 import com.project.library.model.Book;
+import com.project.library.model.Borrower;
 import com.project.library.repository.BookRepository;
+import com.project.library.repository.BorrowerRepository;
 import com.project.library.repository.SectionRepository;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -20,10 +22,13 @@ public class LibraryController {
 
     private final SectionRepository sectionRepository;
 
-    public LibraryController(BookRepository bookRepository, SectionRepository sectionRepository) {
+    private final BorrowerRepository borrowerRepository;
+
+    public LibraryController(BookRepository bookRepository, SectionRepository sectionRepository, BorrowerRepository borrowerRepository) {
 
         this.bookRepository = bookRepository;
         this.sectionRepository = sectionRepository;
+        this.borrowerRepository = borrowerRepository;
     }
 
     @GetMapping("list")
@@ -95,6 +100,27 @@ public class LibraryController {
         return "list-book";
     }
 
+    @GetMapping("listborrower")
+    public String showBorrowerList(Model model) {
+        model.addAttribute("borrowers", borrowerRepository.findAll());
+        return "list-borrower";
+    }
+    @GetMapping("signupborrower")
+    public String showSignUpFormBorrower(Model model) {
+        model.addAttribute("borrower", new Borrower());
+        return "add-borrower";
+    }
 
+
+    @PostMapping("addborrower")
+    public String addBorrower(@Valid Borrower borrower, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("borrower", borrower);
+            return "add-borrower";
+        }
+
+        borrowerRepository.save(borrower);
+        return "redirect:listborrower";
+    }
 
 }
