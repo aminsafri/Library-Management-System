@@ -19,6 +19,10 @@ public class Book {
     @JoinColumn(name = "section_id")
     private Section section;
 
+    @ManyToOne
+    @JoinColumn(name = "borrower_id")
+    private Borrower borrower;
+
     public Book() {
 
     }
@@ -59,6 +63,14 @@ public class Book {
 
     public void setSection(Section section) {
         this.section = section;
+    }
+
+    public Borrower getBorrower() {
+        return borrower;
+    }
+
+    public void setBorrower(Borrower borrower) {
+        this.borrower = borrower;
     }
 
     @Override

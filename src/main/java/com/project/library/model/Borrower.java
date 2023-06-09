@@ -2,6 +2,8 @@ package com.project.library.model;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 
 @Entity
 public class Borrower {
@@ -30,6 +32,8 @@ public class Borrower {
         this.phonenumber = phonenumber;
 
     }
+    @OneToMany(mappedBy = "borrower", cascade = CascadeType.ALL)
+    private Set<Book> books;
 
     public Integer getBorrowerId() {
         return borrowerId;
