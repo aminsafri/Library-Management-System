@@ -4,10 +4,10 @@ insert into book(book_name, author) values ('Summer Time', 'Gray');
 insert into book(book_name, author) values ('Fanatix', 'Mary');
 
 
-insert into borrower(first_name, last_name, email, phone_number) values ('Amin', 'S', 'amin@gmail.com', 01122233);
-insert into borrower(first_name, last_name, email, phone_number) values ('Amin', 'S', 'amin@gmail.com', 01122233);
-insert into borrower(first_name, last_name, email, phone_number) values ('Amin', 'S', 'amin@gmail.com', 01122233);
-insert into borrower(first_name, last_name, email, phone_number) values ('Amin', 'S', 'amin@gmail.com', 01122233);
+insert into borrower(first_name, last_name, email, phone_number) values ('Ahmad', 'Saiful', 'ahmad@gmail.com', 01122233);
+insert into borrower(first_name, last_name, email, phone_number) values ('Wan', 'Ahmad', 'wan@gmail.com', 01152924);
+insert into borrower(first_name, last_name, email, phone_number) values ('Nik', 'Adam', 'nik@gmail.com', 01137566);
+insert into borrower(first_name, last_name, email, phone_number) values ('Abu', 'Bakar', 'abu@gmail.com', 01169996);
 
 INSERT INTO section(section_id, section_name, description, location)
 VALUES (1, 'Fiction', 'This section contains a variety of fictional books.', 'First Floor');
