@@ -122,5 +122,46 @@ public class LibraryController {
         borrowerRepository.save(borrower);
         return "redirect:listborrower";
     }
+    @GetMapping("updateborrower")
+    public String showUpdateMainFormBorrower(Model model) {
+        model.addAttribute("borrowers", borrowerRepository.findAll());
+        return "choose-borrower-to-update";
+    }
 
+    @GetMapping("editborrower/{id}")
+    public String showUpdateFormBorrower(@PathVariable("id") long id, Model model) {
+        Borrower borrower = borrowerRepository.findById((int) id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid borrower Id:" + id));
+        model.addAttribute("borrower", borrower);
+        return "update-borrower";
+    }
+    @PostMapping("updateborrower/{id}")
+    public String updateBorrower(@PathVariable("id") long id, @Valid Borrower borrower, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            borrower.setBorrowerId((int) id);
+            return "index";
+        }
+
+        model.addAttribute("borrowers", borrowerRepository.findAll());
+        borrowerRepository.save(borrower);
+        return "list-borrower";
+    }
+
+    @GetMapping("deleteborrower")
+    public String showDeleteMainFormBorrower(Model model) {
+        model.addAttribute("borrowers", borrowerRepository.findAll());
+        return "choose-borrower-to-delete";
+    }
+
+
+    @GetMapping("deleteborrower/{id}")
+    public String deleteBorrower(@PathVariable("id") long id, Model model) {
+        Borrower borrower = borrowerRepository.findById((int) id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid borrower Id:" + id));
+
+        borrowerRepository.delete(borrower);
+        model.addAttribute("borrowers", borrowerRepository.findAll());
+
+        return "list-borrower";
+    }
 }
