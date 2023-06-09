@@ -15,14 +15,14 @@ public class Borrower {
     @Column(name = "last_name")
     private String lname;
     @Column(name = "email")
-    private Integer email;
+    private String email;
     @Column(name = "phone_number")
     private Integer phonenumber;
 
     public Borrower() {
     }
 
-    public Borrower(Integer borrowerId, String fname, String lname, Integer email, Integer phonenumber) {
+    public Borrower(Integer borrowerId, String fname, String lname, String email, Integer phonenumber) {
         this.borrowerId = borrowerId;
         this.fname = fname;
         this.lname = lname;
@@ -55,11 +55,11 @@ public class Borrower {
         this.lname = lname;
     }
 
-    public Integer getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(Integer email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
