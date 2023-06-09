@@ -35,6 +35,13 @@
         <th>ISBN</th>
         <th>Book Title</th>
         <th>Author</th>
+        <th>Section ID</th>
+        <th>Section Name</th>
+        <th>Borrower ID</th>
+        <th>Borrower Name</th>
+
+
+
       </tr>
       </thead>
       <tbody>
@@ -42,6 +49,12 @@
         <td th:text="${book.bookId}"></td>
         <td th:text="${book.bookName}"></td>
         <td th:text="${book.author}"></td>
+        <td th:text="${section.sectionId}"></td>
+        <td th:text="${section.sectionName}"></td>
+        <td th:text="${borrower.borrowerId}"></td>
+        <td th:text="${borrower.sectionName}"></td>
+
+
 
       </tr>
       </tbody>
