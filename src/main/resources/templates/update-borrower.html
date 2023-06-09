@@ -32,7 +32,7 @@
 </nav>
 
 <div class="container my-5">
-  <h3> Update Book</h3>
+  <h3> Update Borrower</h3>
   <div class="card">
     <div class="card-body">
       <div class="col-md-8">
@@ -40,37 +40,30 @@
               th:object="${borrower}" th:method="post">
           <div class="row">
             <div class="form-group col-md-6">
-              <label for="bookId" class="col-form-label">ISBN</label> <input
-                    type="text" th:field="*{borrowerId}" class="form-control" id="bookId"
-                    placeholder="ISBN" readonly> <span
-                    th:if="${#fields.hasErrors('borrowerId')}" th:errors="*{borrowerId}"
-                    class="text-danger"></span>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="fname" class="col-form-label">Book Title</label> <input
+              <label for="fname" class="col-form-label">First Name</label> <input
                     type="text" th:field="*{fname}" class="form-control" id="fname"
-                    placeholder="Book Title"> <span
+                    placeholder="First name"> <span
                     th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}"
                     class="text-danger"></span>
             </div>
             <div class="form-group col-md-6">
-              <label for="lname" class="col-form-label">Book Title</label> <input
+              <label for="lname" class="col-form-label">Last Name</label> <input
                     type="text" th:field="*{lname}" class="form-control" id="lname"
-                    placeholder="Book Title"> <span
+                    placeholder="Last name"> <span
                     th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}"
                     class="text-danger"></span>
             </div>
             <div class="form-group col-md-6">
               <label for="email" class="col-form-label">Author</label> <input
                     type="text" th:field="*{email}" class="form-control" id="email"
-                    placeholder="Author"> <span
+                    placeholder="Email"> <span
                     th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
                     class="text-danger"></span>
             </div>
             <div class="form-group col-md-6">
               <label for="phonenumber" class="col-form-label">Author</label> <input
                     type="text" th:field="*{phonenumber}" class="form-control" id="phonenumber"
-                    placeholder="Author"> <span
+                    placeholder="Phone Holder"> <span
                     th:if="${#fields.hasErrors('phonenumber')}" th:errors="*{phonenumber}"
                     class="text-danger"></span>
             </div>
