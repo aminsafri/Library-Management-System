@@ -1,0 +1,7 @@
+package com.project.library.repository;
+
+import com.project.library.model.Employee;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
+}

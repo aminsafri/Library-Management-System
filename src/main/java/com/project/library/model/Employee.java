@@ -2,7 +2,11 @@ package com.project.library.model;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
+@Table (name = "employees")
 public class Employee {
 
     @Id
@@ -15,6 +19,16 @@ public class Employee {
 
     @Column(name = "last_name")
     private String lname;
+
+    @ManyToMany
+    @JoinTable(name = "employees_section",
+            joinColumns = {
+                    @JoinColumn(name = "employee_id", referencedColumnName = "employee_id",
+                            nullable = false, updatable = false)},
+            inverseJoinColumns = {
+                    @JoinColumn(name = "section_id", referencedColumnName = "section_id",
+                            nullable = false, updatable = false)})
+    private Set<Section> section = new HashSet<>();
 
     public Employee() {
     }
