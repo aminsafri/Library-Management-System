@@ -2,6 +2,7 @@ package com.project.library.controller;
 
 import com.project.library.model.Book;
 import com.project.library.repository.BookRepository;
+import com.project.library.repository.BorrowerRepository;
 import com.project.library.repository.SectionRepository;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -20,10 +21,13 @@ public class LibraryController {
 
     private final SectionRepository sectionRepository;
 
-    public LibraryController(BookRepository bookRepository, SectionRepository sectionRepository) {
+    private final BorrowerRepository borrowerRepository;
+
+    public LibraryController(BookRepository bookRepository, SectionRepository sectionRepository, BorrowerRepository borrowerRepository) {
 
         this.bookRepository = bookRepository;
         this.sectionRepository = sectionRepository;
+        this.borrowerRepository = borrowerRepository;
     }
 
     @GetMapping("list")
@@ -94,7 +98,6 @@ public class LibraryController {
 
         return "list-book";
     }
-
 
 
 }

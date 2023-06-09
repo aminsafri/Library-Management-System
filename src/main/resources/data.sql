@@ -3,6 +3,12 @@ insert into book(book_name, author) values ('Tears of Kingdom', 'Gary');
 insert into book(book_name, author) values ('Summer Time', 'Gray');
 insert into book(book_name, author) values ('Fanatix', 'Mary');
 
+
+insert into borrower(first_name, last_name, email, phone_number) values ('Amin', 'S', 'amin@gmail.com', 01122233);
+insert into borrower(first_name, last_name, email, phone_number) values ('Amin', 'S', 'amin@gmail.com', 01122233);
+insert into borrower(first_name, last_name, email, phone_number) values ('Amin', 'S', 'amin@gmail.com', 01122233);
+insert into borrower(first_name, last_name, email, phone_number) values ('Amin', 'S', 'amin@gmail.com', 01122233);
+
 INSERT INTO section(section_id, section_name, description, location)
 VALUES (1, 'Fiction', 'This section contains a variety of fictional books.', 'First Floor');
 
