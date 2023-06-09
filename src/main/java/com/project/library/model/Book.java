@@ -15,6 +15,10 @@ public class Book {
     @Column(name = "author")
     private String author;
 
+    @ManyToOne
+    @JoinColumn(name = "section_id")
+    private Section section;
+
     public Book() {
 
     }
@@ -47,6 +51,14 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public Section getSection() {
+        return section;
+    }
+
+    public void setSection(Section section) {
+        this.section = section;
     }
 
     @Override
