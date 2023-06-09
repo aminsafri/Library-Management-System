@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface BookRepository extends JpaRepository<Book, Integer> {
-    @Query(value = "SELECT * FROM staff where book_id = :id", nativeQuery = true)
+    @Query(value = "SELECT * FROM book where book_id = :id", nativeQuery = true)
     Book findBookById(@Param("id") int id);
 }
