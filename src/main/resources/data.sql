@@ -1,7 +1,7 @@
 insert into book(book_name, author) values ('Legends of Archeus', 'Adam');
 insert into book(book_name, author) values ('Tears of Kingdom', 'Gary');
-insert into book(book_name, author) values ('Summer Time', 'Gray');
-insert into book(book_name, author) values ('Fanatix', 'Mary');
+insert into book(book_name, author) values ('Summer Time', 'Rowan');
+insert into book(book_name, author) values ('Rabbit Journey', 'Mary');
 
 insert into employees(employee_id, first_name, last_name) values (111, 'Ray', 'Charles');
 insert into employees(employee_id, first_name, last_name) values (112, 'Gervonta', 'Davis');
