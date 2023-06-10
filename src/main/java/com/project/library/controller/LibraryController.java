@@ -4,6 +4,7 @@ import com.project.library.model.Book;
 import com.project.library.model.Borrower;
 import com.project.library.repository.BookRepository;
 import com.project.library.repository.BorrowerRepository;
+import com.project.library.repository.EmployeeRepository;
 import com.project.library.repository.SectionRepository;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -24,17 +25,26 @@ public class LibraryController {
 
     private final BorrowerRepository borrowerRepository;
 
-    public LibraryController(BookRepository bookRepository, SectionRepository sectionRepository, BorrowerRepository borrowerRepository) {
+    private final EmployeeRepository employeeRepository;
+
+    public LibraryController(BookRepository bookRepository, SectionRepository sectionRepository, BorrowerRepository borrowerRepository, EmployeeRepository employeeRepository) {
 
         this.bookRepository = bookRepository;
         this.sectionRepository = sectionRepository;
         this.borrowerRepository = borrowerRepository;
+        this.employeeRepository = employeeRepository;
     }
 
     @GetMapping("list")
     public String showUpdateForm(Model model) {
         model.addAttribute("books", bookRepository.findAll());
         return "list-book";
+    }
+
+    @GetMapping("listemployee")
+    public String showEmployeeList(Model model) {
+        model.addAttribute("employees", employeeRepository.findAll());
+        return "list-employee";
     }
 
     @GetMapping("signup")

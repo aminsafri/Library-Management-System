@@ -6,7 +6,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table (name = "employees")
 public class Employee {
 
     @Id
@@ -21,7 +20,7 @@ public class Employee {
     private String lname;
 
     @ManyToMany
-    @JoinTable(name = "employees_section",
+    @JoinTable(name = "employee_section",
             joinColumns = {
                     @JoinColumn(name = "employee_id", referencedColumnName = "employee_id",
                             nullable = false, updatable = false)},
