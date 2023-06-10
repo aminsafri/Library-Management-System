@@ -21,6 +21,9 @@ public class Borrower {
     @Column(name = "phone_number")
     private Integer phonenumber;
 
+    @OneToMany(mappedBy = "borrower", cascade = CascadeType.ALL)
+    private Set<Book> books;
+
     public Borrower() {
     }
 
@@ -32,8 +35,6 @@ public class Borrower {
         this.phonenumber = phonenumber;
 
     }
-    @OneToMany(mappedBy = "borrower", cascade = CascadeType.ALL)
-    private Set<Book> books;
 
     public Integer getBorrowerId() {
         return borrowerId;
@@ -73,6 +74,10 @@ public class Borrower {
 
     public void setPhonenumber(Integer phonenumber) {
         this.phonenumber = phonenumber;
+    }
+
+    public Set<Book> getBooks() {
+        return books;
     }
 
     @Override

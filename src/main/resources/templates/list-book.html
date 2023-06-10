@@ -35,24 +35,25 @@
         <th>ISBN</th>
         <th>Book Title</th>
         <th>Author</th>
-        <th>Section ID</th>
-        <th>Section Name</th>
+<!--        <th>Section ID</th>-->
+<!--        <th>Section Name</th>-->
         <th>Borrower ID</th>
         <th>Borrower Name</th>
-
-
 
       </tr>
       </thead>
       <tbody>
+      <tr th:if="${books.empty}">
+        <td colspan="2"> No Books Available</td>
+      </tr>
       <tr th:each="book : ${books}">
-        <td th:text="${book.bookId}"></td>
-        <td th:text="${book.bookName}"></td>
-        <td th:text="${book.author}"></td>
+        <td><span th:text="${book.bookId}"></span></td>
+        <td><span th:text="${book.bookName}"></span></td>
+        <td><span th:text="${book.author}"></span></td>
 <!--        <td th:text="${section.sectionId}"></td>-->
 <!--        <td th:text="${section.sectionName}"></td>-->
-<!--        <td th:text="${borrower.borrowerId}"></td>-->
-<!--        <td th:text="${borrower.sectionName}"></td>-->
+        <td><span th:text="${book.borrower?.borrowerId}"></span></td>
+        <td><span th:text="${book.borrower?.fname}"></span></td>
 
 
 

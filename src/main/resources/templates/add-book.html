@@ -36,7 +36,7 @@
       <form action="#" th:action="@{/books/add}" th:object="${book}" method="post">
         <div class="row">
           <div class="form-group col-md-8">
-            <label for="bookName" class="col-form-label">FirstName</label> <input
+            <label for="bookName" class="col-form-label">Book Title</label> <input
                   type="text" th:field="*{bookName}" class="form-control" id="bookName"
                   placeholder="Book Title"> <span
                   th:if="${#fields.hasErrors('bookName')}" th:errors="*{bookName}"
@@ -51,7 +51,7 @@
           </div>
 
           <div class="form-group col-md-8">
-            <label class="col-form-label">Department</label>
+            <label class="col-form-label">Section</label>
             <select th:field="*{section}">
               <option value=""> Choose Department.. </option>
               <option th:each="d: ${sections}" th:value="${d.sectionId}"

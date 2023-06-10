@@ -27,10 +27,11 @@ public class Book {
 
     }
 
-    public Book(Integer bookId, String bookName, String author) {
+    public Book(Integer bookId, String bookName, String author, Borrower borrower) {
         this.bookId = bookId;
         this.bookName = bookName;
         this.author = author;
+        this.borrower = borrower;
     }
 
     public Integer getBookId() {

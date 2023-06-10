@@ -41,4 +41,15 @@ VALUES (9, 'Self-help', 'Self-help books including personal development, motivat
 INSERT INTO section(section_id, section_name, description, location)
 VALUES (10, 'Biography & Autobiography', 'Read about the lives of fascinating people in this section containing biographies and autobiographies.', 'Second Floor');
 
+update book set borrower_id = 1
+where book_id = 1;
 
+
+update book set borrower_id = 2
+where book_id = 2;
+
+update book set borrower_id = 3
+where book_id = 3;
+
+update book set borrower_id = 2
+where book_id = 4;
