@@ -139,7 +139,7 @@ public class LibraryController {
     public String updateBorrower(@PathVariable("id") long id, @Valid Borrower borrower, BindingResult result, Model model) {
         if (result.hasErrors()) {
             borrower.setBorrowerId((int) id);
-            return "index";
+            return "update-borrower";
         }
 
         model.addAttribute("borrowers", borrowerRepository.findAll());
