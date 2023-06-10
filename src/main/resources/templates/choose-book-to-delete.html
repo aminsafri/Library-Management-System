@@ -40,8 +40,9 @@
           <th>ISBN</th>
           <th>Book Title</th>
           <th>Author</th>
-          <th>Section ID</th>
           <th>Section Name</th>
+          <th>Borrower ID</th>
+          <th>Borrower Name</th>
           <th>Delete</th>
         </tr>
         </thead>
@@ -54,8 +55,9 @@
           <td><span th:text="${book.bookId}"></span></td>
           <td><span th:text="${book.bookName}"></span></td>
           <td><span th:text="${book.author}"></span></td>
-          <td th:text="${book.section?.sectionId}"></td>
           <td th:text="${book.section?.sectionName}"></td>
+          <td th:text="${book.borrower?.borrowerId}"></td>
+          <td th:text="${book.borrower?.fname + ' ' + book.borrower?.lname}"></td>
           <td><a th:href="@{/books/delete/{id}(id=${book.bookId})}"
                  class="btn btn-danger"><i class="fas fa-user-times ml-2"></i></a></td>
 

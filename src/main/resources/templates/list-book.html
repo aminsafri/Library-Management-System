@@ -35,7 +35,6 @@
         <th>ISBN</th>
         <th>Book Title</th>
         <th>Author</th>
-        <th>Section ID</th>
         <th>Section Name</th>
         <th>Borrower ID</th>
         <th>Borrower Name</th>
@@ -50,10 +49,10 @@
         <td><span th:text="${book.bookId}"></span></td>
         <td><span th:text="${book.bookName}"></span></td>
         <td><span th:text="${book.author}"></span></td>
-        <td th:text="${book.section?.sectionId}"></td>
-        <td th:text="${book.section?.sectionName}"></td>
+        <td><span th:text="${book.section?.sectionName}"></span></td>
         <td><span th:text="${book.borrower?.borrowerId}"></span></td>
-        <td><span th:text="${book.borrower?.fname}"></span></td>
+        <td><span th:text="${book.borrower?.fname + ' ' + book.borrower?.lname}"></span></td>
+
       </tr>
       </tbody>
     </table>
