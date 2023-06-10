@@ -57,3 +57,16 @@ insert into employee_section(employee_id, section_id) values (001,1);
 insert into employee_section(employee_id, section_id) values (001,2);
 insert into employee_section(employee_id, section_id) values (002,3);
 insert into employee_section(employee_id, section_id) values (002,4);
+
+
+update book set section_id = 1
+where book_id = 1;
+
+update book set section_id = 2
+where book_id = 2;
+
+update book set section_id = 3
+where book_id = 3;
+
+update book set section_id = 2
+where book_id = 4;
