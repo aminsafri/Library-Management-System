@@ -63,6 +63,15 @@
             </div>
 
             <div class="form-group col-md-8">
+              <label class="col-form-label">Section</label>
+              <select th:field="*{section}">
+                <option value=""> Choose Book Section.. </option>
+                <option th:each="d: ${sections}" th:value="${d.sectionId}"
+                        th:text="${d.sectionName}"/>
+              </select>
+            </div>
+
+            <div class="form-group col-md-8">
               <input type="submit" class="btn btn-success"
                      value="Update Staff">
             </div>

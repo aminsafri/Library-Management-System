@@ -39,7 +39,9 @@
         <tr>
           <th>ISBN</th>
           <th>Book Title</th>
-          <th>Author</th>
+          <th>Author
+          <th>Section ID</th>
+          <th>Section Name</th>
           <th>Update</th>
         </tr>
         </thead>
@@ -48,6 +50,8 @@
           <td th:text="${book.bookId}"></td>
           <td th:text="${book.bookName}"></td>
           <td th:text="${book.author}"></td>
+          <td th:text="${book.section?.sectionId}"></td>
+          <td th:text="${book.section?.sectionName}"></td>
           <td><a th:href="@{/books/edit/{id}(id=${book.bookId})}"
                  class="btn btn-success"><i class="fas fa-user-edit ml-2"></i></a></td>
         </tr>

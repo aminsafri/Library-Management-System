@@ -53,3 +53,17 @@ where book_id = 3;
 
 update book set borrower_id = 2
 where book_id = 4;
+
+
+
+update book set section_id = 1
+where book_id = 1;
+
+update book set section_id = 2
+where book_id = 2;
+
+update book set section_id = 3
+where book_id = 3;
+
+update book set section_id = 2
+where book_id = 4;
