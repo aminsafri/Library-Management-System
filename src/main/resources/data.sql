@@ -3,8 +3,8 @@ insert into book(book_name, author) values ('Tears of Kingdom', 'Gary');
 insert into book(book_name, author) values ('Summer Time', 'Rowan');
 insert into book(book_name, author) values ('Rabbit Journey', 'Mary');
 
-insert into employees(employee_id, first_name, last_name) values (111, 'Ray', 'Charles');
-insert into employees(employee_id, first_name, last_name) values (112, 'Gervonta', 'Davis');
+insert into employee(employee_id, first_name, last_name) values (001, 'Ray', 'Charles');
+insert into employee(employee_id, first_name, last_name) values (002, 'Gervonta', 'Davis');
 
 insert into borrower(first_name, last_name, email, phone_number) values ('Ahmad', 'Saiful', 'ahmad@gmail.com', 01122233);
 insert into borrower(first_name, last_name, email, phone_number) values ('Wan', 'Ahmad', 'wan@gmail.com', 01152924);
@@ -44,7 +44,6 @@ VALUES (10, 'Biography & Autobiography', 'Read about the lives of fascinating pe
 update book set borrower_id = 1
 where book_id = 1;
 
-
 update book set borrower_id = 2
 where book_id = 2;
 
@@ -54,16 +53,7 @@ where book_id = 3;
 update book set borrower_id = 2
 where book_id = 4;
 
-
-
-update book set section_id = 1
-where book_id = 1;
-
-update book set section_id = 2
-where book_id = 2;
-
-update book set section_id = 3
-where book_id = 3;
-
-update book set section_id = 2
-where book_id = 4;
+insert into employee_section(employee_id, section_id) values (001,1);
+insert into employee_section(employee_id, section_id) values (001,2);
+insert into employee_section(employee_id, section_id) values (002,3);
+insert into employee_section(employee_id, section_id) values (002,4);
