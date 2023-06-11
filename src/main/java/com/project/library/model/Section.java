@@ -19,11 +19,11 @@ public class Section {
     @Column(name = "location")
     private String location;
 
-    @ManyToMany(mappedBy = "section")
-    private Set<Employee> employee = new HashSet<>();
+    @ManyToMany(mappedBy = "section", fetch = FetchType.LAZY)
+    private Set<Employee> employees = new HashSet<>();
 
     @OneToMany(mappedBy = "section", cascade = CascadeType.ALL)
-    private Set<Book> books;
+    private Set<Book> books = new HashSet<>();
 
     public Integer getSectionId() {
         return sectionId;
