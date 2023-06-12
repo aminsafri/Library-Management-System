@@ -2,6 +2,7 @@ package com.project.library.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Set;
 
 
@@ -21,8 +22,8 @@ public class Borrower {
     @Column(name = "phone_number")
     private Integer phonenumber;
 
-    @OneToMany(mappedBy = "borrower", cascade = CascadeType.ALL)
-    private Set<Book> books;
+    @OneToMany(mappedBy = "borrower")
+    private List<Book> books;
 
     public Borrower() {
     }
@@ -76,8 +77,12 @@ public class Borrower {
         this.phonenumber = phonenumber;
     }
 
-    public Set<Book> getBooks() {
+    public List<Book> getBooks() {
         return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
     @Override

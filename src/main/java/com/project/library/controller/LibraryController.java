@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/books")
 public class LibraryController {
@@ -125,6 +127,59 @@ public class LibraryController {
 
         borrowerRepository.save(borrower);
         return "redirect:listborrower";
+    }
+    @GetMapping("updateborrower")
+    public String showUpdateMainFormBorrower(Model model) {
+        model.addAttribute("borrowers", borrowerRepository.findAll());
+        return "choose-borrower-to-update";
+    }
+
+
+    @GetMapping("editborrower/{id}")
+    public String showUpdateFormBorrower(@PathVariable("id") long id, Model model) {
+        Borrower borrower = borrowerRepository.findById((int) id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid borrower Id:" + id));
+        model.addAttribute("borrower", borrower);
+        return "update-borrower";
+    }
+
+
+    @PostMapping("updateborrower/{id}")
+    public String updateBorrower(@PathVariable("id") long id, @Valid Borrower borrower, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            borrower.setBorrowerId((int) id);
+            return "update-borrower";
+        }
+
+        model.addAttribute("borrowers", borrowerRepository.findAll());
+        borrowerRepository.save(borrower);
+        return "list-borrower";
+    }
+
+    @GetMapping("deleteborrower")
+    public String showDeleteMainFormBorrower(Model model) {
+        model.addAttribute("borrowers", borrowerRepository.findAll());
+        return "choose-borrower-to-delete";
+    }
+
+
+    @GetMapping("deleteborrower/{id}")
+    public String deleteBorrower(@PathVariable("id") long id, Model model) {
+        Borrower borrower = borrowerRepository.findById((int) id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid borrower Id:" + id));
+
+        List<Book> books = borrower.getBooks(); // Get the books associated with the borrower
+
+        // Remove the borrower from the books
+        for (Book book : books) {
+            book.setBorrower(null);
+            bookRepository.save(book);
+        }
+
+        borrowerRepository.delete(borrower); // Delete the borrower
+
+        model.addAttribute("borrowers", borrowerRepository.findAll());
+        return "list-borrower";
     }
 
 

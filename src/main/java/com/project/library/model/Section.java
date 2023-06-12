@@ -19,11 +19,11 @@ public class Section {
     @Column(name = "location")
     private String location;
 
-    @ManyToMany(mappedBy = "section", fetch = FetchType.LAZY)
-    private Set<Employee> employees = new HashSet<>();
-
-    @OneToMany(mappedBy = "section", cascade = CascadeType.ALL)
-    private Set<Book> books = new HashSet<>();
+//    @ManyToMany(mappedBy = "section", fetch = FetchType.LAZY)
+//    private Set<Employee> employees = new HashSet<>();
+//
+//    @OneToMany(mappedBy = "section", cascade = CascadeType.ALL)
+//    private Set<Book> books = new HashSet<>();
 
     public Integer getSectionId() {
         return sectionId;
@@ -62,7 +62,12 @@ public class Section {
 
     }
 
-
+    public Section(Integer sectionId, String sectionName, String description, String location) {
+        this.sectionId = sectionId;
+        this.sectionName = sectionName;
+        this.description = description;
+        this.location = location;
+    }
 
     @Override
     public String toString() {
