@@ -67,6 +67,7 @@ public class LibraryController {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid book Id:" + id));
         model.addAttribute("book", book);
         model.addAttribute("sections", sectionRepository.findAll());
+        model.addAttribute("borrowers", borrowerRepository.findAll());
         return "update-book";
     }
 
