@@ -11,12 +11,12 @@
       margin-bottom: 50px;
     }
     .dropdown-menu {
-      width: 200px;
+      width: 300px;
       left: auto;
     }
 
     .dropdown-button {
-      width: 500px;
+      width: 300px;
       margin-right: 10px;
       margin-bottom: 200px;
     }
@@ -58,9 +58,20 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="borrowerDropdown">
         <a class="dropdown-item" href="/books/listborrower" th:href="@{/books/listborrower}">Show Borrower List</a>
-        <a class="dropdown-item" href="/books/signupborrower" th:href="@{/books/signupborrower}">Add Borrower</a>
-        <a class="dropdown-item" href="/books/updateborrower" th:href="@{/books/updateborrower}">Update Borrower</a>
+        <a class="dropdown-item" href="/books/signupborrower" th:href="@{/books/signupborrower}">Register Borrower</a>
+        <a class="dropdown-item" href="/books/updateborrower" th:href="@{/books/updateborrower}">Update Borrower Information</a>
         <a class="dropdown-item" href="/books/deleteborrower" th:href="@{/books/deleteborrower}">Delete Borrower</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle dropdown-button" type="button" id="copyDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Copy
+      </button>
+      <div class="dropdown-menu" aria-labelledby="copyDropdown">
+        <a class="dropdown-item" href="/books/listcopy" th:href="@{/books/listcopy}">Show copy List</a>
+        <a class="dropdown-item" href="/books/signupcopy" th:href="@{/books/signupcopy}">Add copy</a>
+        <a class="dropdown-item" href="/books/updatecopy" th:href="@{/books/updatecopy}">Update copy</a>
+        <a class="dropdown-item" href="/books/deletecopy" th:href="@{/books/deletecopy}">Delete copy</a>
       </div>
     </div>
     <div class="dropdown">

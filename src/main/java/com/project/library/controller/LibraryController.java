@@ -2,9 +2,11 @@ package com.project.library.controller;
 
 import com.project.library.model.Book;
 import com.project.library.model.Borrower;
+import com.project.library.model.Copy;
 import com.project.library.model.Section;
 import com.project.library.repository.BookRepository;
 import com.project.library.repository.BorrowerRepository;
+import com.project.library.repository.CopyRepository;
 import com.project.library.repository.SectionRepository;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -27,11 +29,14 @@ public class LibraryController {
 
     private final BorrowerRepository borrowerRepository;
 
-    public LibraryController(BookRepository bookRepository, SectionRepository sectionRepository, BorrowerRepository borrowerRepository) {
+    private final CopyRepository copyRepository;
+
+    public LibraryController(BookRepository bookRepository, SectionRepository sectionRepository, BorrowerRepository borrowerRepository, CopyRepository copyRepository) {
 
         this.bookRepository = bookRepository;
         this.sectionRepository = sectionRepository;
         this.borrowerRepository = borrowerRepository;
+        this.copyRepository = copyRepository;
     }
 
     @GetMapping("list")
@@ -69,7 +74,6 @@ public class LibraryController {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid book Id:" + id));
         model.addAttribute("book", book);
         model.addAttribute("sections", sectionRepository.findAll());
-        model.addAttribute("borrowers", borrowerRepository.findAll());
         return "update-book";
     }
 
@@ -97,6 +101,14 @@ public class LibraryController {
     public String deleteBook(@PathVariable("id") long id, Model model) {
         Book book = bookRepository.findById((int) id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid book Id:" + id));
+
+        List<Copy> copy = book.getCopy(); // Get the books associated with the borrower
+
+        // Remove the borrower from the books
+        for (Copy copies : copy) {
+            copies.setBorrower(null);
+            copyRepository.save(copies);
+        }
 
         bookRepository.delete(book);
         model.addAttribute("books", bookRepository.findAll());
@@ -168,12 +180,12 @@ public class LibraryController {
         Borrower borrower = borrowerRepository.findById((int) id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid borrower Id:" + id));
 
-        List<Book> books = borrower.getBooks(); // Get the books associated with the borrower
+        List<Copy> copy = borrower.getCopy(); // Get the books associated with the borrower
 
         // Remove the borrower from the books
-        for (Book book : books) {
-            book.setBorrower(null);
-            bookRepository.save(book);
+        for (Copy copies : copy) {
+            copies.setBorrower(null);
+            copyRepository.save(copies);
         }
 
         borrowerRepository.delete(borrower); // Delete the borrower
@@ -181,7 +193,6 @@ public class LibraryController {
         model.addAttribute("borrowers", borrowerRepository.findAll());
         return "list-borrower";
     }
-
 
     //Section
 
@@ -248,6 +259,85 @@ public class LibraryController {
 
         return "list-section";
     }
+
+    //copy
+
+    @GetMapping("listcopy")
+    public String showCopyList(Model model) {
+        model.addAttribute("copies", copyRepository.findAll());
+        return "list-copy";
+    }
+//    @GetMapping("signupborrower")
+//    public String showSignUpFormBorrower(Model model) {
+//        model.addAttribute("borrower", new Borrower());
+//        return "add-borrower";
+//    }
+//
+//
+//    @PostMapping("addborrower")
+//    public String addBorrower(@Valid Borrower borrower, BindingResult result, Model model) {
+//        if (result.hasErrors()) {
+//            model.addAttribute("borrower", borrower);
+//            return "add-borrower";
+//        }
+//
+//        borrowerRepository.save(borrower);
+//        return "redirect:listborrower";
+//    }
+//    @GetMapping("updateborrower")
+//    public String showUpdateMainFormBorrower(Model model) {
+//        model.addAttribute("borrowers", borrowerRepository.findAll());
+//        return "choose-borrower-to-update";
+//    }
+//
+//
+//    @GetMapping("editborrower/{id}")
+//    public String showUpdateFormBorrower(@PathVariable("id") long id, Model model) {
+//        Borrower borrower = borrowerRepository.findById((int) id)
+//                .orElseThrow(() -> new IllegalArgumentException("Invalid borrower Id:" + id));
+//        model.addAttribute("borrower", borrower);
+//        return "update-borrower";
+//    }
+//
+//
+//    @PostMapping("updateborrower/{id}")
+//    public String updateBorrower(@PathVariable("id") long id, @Valid Borrower borrower, BindingResult result, Model model) {
+//        if (result.hasErrors()) {
+//            borrower.setBorrowerId((int) id);
+//            return "update-borrower";
+//        }
+//
+//        model.addAttribute("borrowers", borrowerRepository.findAll());
+//        borrowerRepository.save(borrower);
+//        return "list-borrower";
+//    }
+//
+//    @GetMapping("deleteborrower")
+//    public String showDeleteMainFormBorrower(Model model) {
+//        model.addAttribute("borrowers", borrowerRepository.findAll());
+//        return "choose-borrower-to-delete";
+//    }
+//
+//
+//    @GetMapping("deleteborrower/{id}")
+//    public String deleteBorrower(@PathVariable("id") long id, Model model) {
+//        Borrower borrower = borrowerRepository.findById((int) id)
+//                .orElseThrow(() -> new IllegalArgumentException("Invalid borrower Id:" + id));
+//
+//        List<Copy> copy = borrower.getCopy(); // Get the books associated with the borrower
+//
+//        // Remove the borrower from the books
+//        for (Copy copies : copy) {
+//            copies.setBorrower(null);
+//            copyRepository.save(copies);
+//        }
+//
+//        borrowerRepository.delete(borrower); // Delete the borrower
+//
+//        model.addAttribute("borrowers", borrowerRepository.findAll());
+//        return "list-borrower";
+//    }
+
 }
 
 

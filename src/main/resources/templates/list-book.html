@@ -36,8 +36,6 @@
         <th>Book Title</th>
         <th>Author</th>
         <th>Section Name</th>
-        <th>Borrower ID</th>
-        <th>Borrower Name</th>
 
       </tr>
       </thead>
@@ -50,8 +48,7 @@
         <td><span th:text="${book.bookName}"></span></td>
         <td><span th:text="${book.author}"></span></td>
         <td><span th:text="${book.section?.sectionName}"></span></td>
-        <td><span th:text="${book.borrower?.borrowerId}"></span></td>
-        <td><span th:text="${book.borrower?.fname + ' ' + book.borrower?.lname}"></span></td>
+
 
       </tr>
       </tbody>

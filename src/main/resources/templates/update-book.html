@@ -72,15 +72,6 @@
             </div>
 
             <div class="form-group col-md-8">
-              <label class="col-form-label">Borrower ID</label>
-              <select th:field="*{borrower}">
-                <option value=""> Choose Borrower ID.. </option>
-                <option th:each="d: ${borrowers}" th:value="${d.borrowerId}"
-                        th:text="${d.borrowerId}"/>
-              </select>
-            </div>
-
-            <div class="form-group col-md-8">
               <input type="submit" class="btn btn-success"
                      value="Update Staff">
             </div>

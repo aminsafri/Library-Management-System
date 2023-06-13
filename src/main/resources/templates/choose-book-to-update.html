@@ -41,8 +41,6 @@
           <th>Book Title</th>
           <th>Author
           <th>Section Name</th>
-          <th>Borrower ID</th>
-          <th>Borrower Name</th>
           <th>Update</th>
         </tr>
         </thead>
@@ -52,8 +50,6 @@
           <td th:text="${book.bookName}"></td>
           <td th:text="${book.author}"></td>
           <td th:text="${book.section?.sectionName}"></td>
-          <td th:text="${book.borrower?.borrowerId}"></td>
-          <td th:text="${book.borrower?.fname + ' ' + book.borrower?.lname}"></td>
           <td><a th:href="@{/books/edit/{id}(id=${book.bookId})}"
                  class="btn btn-success"><i class="fas fa-user-edit ml-2"></i></a></td>
         </tr>

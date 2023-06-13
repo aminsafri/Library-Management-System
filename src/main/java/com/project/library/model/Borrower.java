@@ -1,7 +1,6 @@
 package com.project.library.model;
 
 import jakarta.persistence.*;
-
 import java.util.List;
 import java.util.Set;
 
@@ -22,19 +21,19 @@ public class Borrower {
     @Column(name = "phone_number")
     private Integer phonenumber;
 
-    @OneToMany(mappedBy = "borrower")
-    private List<Book> books;
+    @OneToMany(mappedBy = "borrower", cascade = CascadeType.ALL)
+    private List<Copy> copy;
 
     public Borrower() {
     }
 
-    public Borrower(Integer borrowerId, String fname, String lname, String email, Integer phonenumber) {
+    public Borrower(Integer borrowerId, String fname, String lname, String email, Integer phonenumber, List<Copy> copy) {
         this.borrowerId = borrowerId;
         this.fname = fname;
         this.lname = lname;
         this.email = email;
         this.phonenumber = phonenumber;
-
+        this.copy = copy;
     }
 
     public Integer getBorrowerId() {
@@ -77,12 +76,12 @@ public class Borrower {
         this.phonenumber = phonenumber;
     }
 
-    public List<Book> getBooks() {
-        return books;
+    public List<Copy> getCopy() {
+        return copy;
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
+    public void setCopy(List<Copy> copy) {
+        this.copy = copy;
     }
 
     @Override
