@@ -21,7 +21,7 @@ public class Borrower {
     @Column(name = "phone_number")
     private Integer phonenumber;
 
-    @OneToMany(mappedBy = "borrower", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "borrower")
     private List<Copy> copy;
 
     public Borrower() {

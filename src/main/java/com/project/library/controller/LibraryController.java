@@ -267,23 +267,24 @@ public class LibraryController {
         model.addAttribute("copies", copyRepository.findAll());
         return "list-copy";
     }
-//    @GetMapping("signupborrower")
-//    public String showSignUpFormBorrower(Model model) {
-//        model.addAttribute("borrower", new Borrower());
-//        return "add-borrower";
-//    }
-//
-//
-//    @PostMapping("addborrower")
-//    public String addBorrower(@Valid Borrower borrower, BindingResult result, Model model) {
-//        if (result.hasErrors()) {
-//            model.addAttribute("borrower", borrower);
-//            return "add-borrower";
-//        }
-//
-//        borrowerRepository.save(borrower);
-//        return "redirect:listborrower";
-//    }
+    @GetMapping("signupcopy")
+    public String showSignUpFormCopy(Copy copy, Model model){
+        model.addAttribute("books", bookRepository.findAll());
+        model.addAttribute("borrowers", borrowerRepository.findAll());
+        return "add-copy";
+    }
+
+
+    @PostMapping("addcopy")
+    public String addCopy(@Valid Copy copy, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "add-copy";
+        }
+
+        copyRepository.save(copy);
+        return "redirect:listcopy";
+    }
+
 //    @GetMapping("updateborrower")
 //    public String showUpdateMainFormBorrower(Model model) {
 //        model.addAttribute("borrowers", borrowerRepository.findAll());

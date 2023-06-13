@@ -10,6 +10,10 @@ public class Copy {
     @Column(name = "copy_id")
     private Integer copyId;
 
+    @ManyToOne
+    @JoinColumn(name = "book_id")
+    private Book book;
+
     @Column(name = "start_date")
     private String startDate;
 
@@ -22,10 +26,6 @@ public class Copy {
     @ManyToOne
     @JoinColumn(name = "borrower_id")
     private Borrower borrower;
-
-    @ManyToOne
-    @JoinColumn(name = "book_id")
-    private Book book;
 
     public Copy() {
     }
@@ -91,11 +91,11 @@ public class Copy {
     public String toString() {
         return "Copy{" +
                 "copyId=" + copyId +
+                ", book=" + book +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
                 ", status='" + status + '\'' +
                 ", borrower=" + borrower +
-                ", book=" + book +
                 '}';
     }
 }

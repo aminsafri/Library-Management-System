@@ -20,10 +20,12 @@
     <thead class="table-dark">
     <tr>
       <th>Copy Id</th>
-      <th>Book Id</th>
+      <th>ISBN</th>
       <th>Start Date</th>
       <th>End Date</th>
       <th>Status</th>
+      <th>Borrower ID</th>
+      <th>Borrower Name</th>
     </tr>
     </thead>
     <tbody>
@@ -33,6 +35,8 @@
       <td><span th:text="${copy.startDate}"> </span></td>
       <td><span th:text="${copy.endDate}"> </span></td>
       <td><span th:text="${copy.status}"> </span></td>
+      <td><span th:text="${copy.borrower?.borrowerId}"></span></td>
+      <td><span th:text="${(copy.borrower?.fname ?: '') + ' ' + (copy.borrower?.lname ?: '')}"></span></td>
     </tr>
     </tbody>
   </table>

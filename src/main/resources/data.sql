@@ -11,14 +11,20 @@ insert into borrower(first_name, last_name, email, phone_number) values ('Wan', 
 insert into borrower(first_name, last_name, email, phone_number) values ('Nik', 'Adam', 'nik@gmail.com', 01137566);
 insert into borrower(first_name, last_name, email, phone_number) values ('Abu', 'Bakar', 'abu@gmail.com', 01169996);
 
-insert into copy(copy_id, start_date, end_date, status ) values (1, '21/8/2023', '21/9/2023', 'Not Available');
+insert into copy(start_date, end_date, status ) values ('21/8/2023', '21/9/2023', 'Not Available');
+insert into copy(start_date, end_date, status) values ('25/8/2023', '25/9/2023', 'Not Available');
+insert into copy(start_date, end_date, status) values ('30/8/2023', '30/9/2023', 'Not Available');
+insert into copy(start_date, end_date, status) values ('5/9/2023', '5/10/2023', 'Not Available');
+
 update copy set book_id = 1 where copy_id = 1;
-insert into copy(copy_id, start_date, end_date, status) values (2, '25/8/2023', '25/9/2023', 'Not Available');
 update copy set book_id = 1 where copy_id = 2;
-insert into copy(copy_id, start_date, end_date, status) values (3, '30/8/2023', '30/9/2023', 'Not Available');
 update copy set book_id = 3 where copy_id = 3;
-insert into copy(copy_id, start_date, end_date, status) values (4, '5/9/2023', '5/10/2023', 'Not Available');
-update copy set book_id = 4 where copy_id = 4;
+update copy set book_id = 2 where copy_id = 4;
+
+update copy set borrower_id = 1 where copy_id = 1;
+update copy set borrower_id = 3 where copy_id = 2;
+update copy set borrower_id = 2 where copy_id = 3;
+update copy set borrower_id = 1 where copy_id = 4;
 
 INSERT INTO section(section_id, section_name, description, location)
 VALUES (1, 'Fiction', 'This section contains a variety of fictional books.', 'First Floor');
