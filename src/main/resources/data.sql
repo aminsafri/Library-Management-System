@@ -3,8 +3,8 @@ insert into book(book_name, author) values ('Tears of Kingdom', 'Gary');
 insert into book(book_name, author) values ('Summer Time', 'Rowan');
 insert into book(book_name, author) values ('Rabbit Journey', 'Mary');
 
-insert into employee(employee_id, first_name, last_name) values (001, 'Ray', 'Charles');
-insert into employee(employee_id, first_name, last_name) values (002, 'Gervonta', 'Davis');
+insert into employee(first_name, last_name) values ('Ray', 'Charles');
+insert into employee(first_name, last_name) values ('Gervonta', 'Davis');
 
 insert into borrower(first_name, last_name, email, phone_number) values ('Ahmad', 'Saiful', 'ahmad@gmail.com', 01122233);
 insert into borrower(first_name, last_name, email, phone_number) values ('Wan', 'Ahmad', 'wan@gmail.com', 01152924);
