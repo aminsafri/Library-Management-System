@@ -2,6 +2,8 @@ package com.project.library.model;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 public class Copy {
 
@@ -15,10 +17,10 @@ public class Copy {
     private Book book;
 
     @Column(name = "start_date")
-    private String startDate;
+    private Date startDate;
 
     @Column(name = "end_date")
-    private String endDate;
+    private Date endDate;
 
     @Column(name = "status")
     private String status;
@@ -30,7 +32,7 @@ public class Copy {
     public Copy() {
     }
 
-    public Copy(Integer copyId, String startDate, String endDate, String status, Borrower borrower, Book book) {
+    public Copy(Integer copyId, Date startDate, Date endDate, String status, Borrower borrower, Book book) {
         this.copyId = copyId;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -47,19 +49,19 @@ public class Copy {
         this.copyId = copyId;
     }
 
-    public String getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public String getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(String endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 

@@ -3,6 +3,7 @@ package com.project.library.model;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -22,8 +23,8 @@ public class Section {
 //    @ManyToMany(mappedBy = "section", fetch = FetchType.LAZY)
 //    private Set<Employee> employees = new HashSet<>();
 //
-//    @OneToMany(mappedBy = "section", cascade = CascadeType.ALL)
-//    private Set<Book> books = new HashSet<>();
+    @OneToMany(mappedBy = "section", cascade = CascadeType.ALL)
+    private List<Book> books;
 
     public Integer getSectionId() {
         return sectionId;
@@ -57,16 +58,24 @@ public class Section {
         this.location = location;
     }
 
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
 
     public Section(){
 
     }
 
-    public Section(Integer sectionId, String sectionName, String description, String location) {
+    public Section(Integer sectionId, String sectionName, String description, String location, List<Book> books) {
         this.sectionId = sectionId;
         this.sectionName = sectionName;
         this.description = description;
         this.location = location;
+        this.books = books;
     }
 
     @Override

@@ -11,15 +11,24 @@ insert into borrower(first_name, last_name, email, phone_number) values ('Wan', 
 insert into borrower(first_name, last_name, email, phone_number) values ('Nik', 'Adam', 'nik@gmail.com', 01137566);
 insert into borrower(first_name, last_name, email, phone_number) values ('Abu', 'Bakar', 'abu@gmail.com', 01169996);
 
-insert into copy(start_date, end_date, status ) values ('21/8/2023', '21/9/2023', 'Not Available');
-insert into copy(start_date, end_date, status) values ('25/8/2023', '25/9/2023', 'Not Available');
-insert into copy(start_date, end_date, status) values ('30/8/2023', '30/9/2023', 'Not Available');
-insert into copy(start_date, end_date, status) values ('5/9/2023', '5/10/2023', 'Not Available');
+INSERT INTO copy (start_date, end_date, status) VALUES ('2023-08-21', '2023-09-21', 'Not Available');
+INSERT INTO copy (start_date, end_date, status) VALUES ('2023-08-25', '2023-09-25', 'Not Available');
+INSERT INTO copy (start_date, end_date, status) VALUES ('2023-08-30', '2023-09-30', 'Not Available');
+INSERT INTO copy (start_date, end_date, status) VALUES ('2023-09-05', '2023-10-05', 'Not Available');
+
+insert into copy(start_date, end_date, status) values (null, null, 'Available');
+insert into copy(start_date, end_date, status) values (null, null, 'Available');
+insert into copy(start_date, end_date, status) values (null, null, 'Available');
+insert into copy(start_date, end_date, status) values (null, null, 'Available');
 
 update copy set book_id = 1 where copy_id = 1;
 update copy set book_id = 1 where copy_id = 2;
-update copy set book_id = 3 where copy_id = 3;
+update copy set book_id = 2 where copy_id = 3;
 update copy set book_id = 2 where copy_id = 4;
+update copy set book_id = 2 where copy_id = 5;
+update copy set book_id = 3 where copy_id = 6;
+update copy set book_id = 3 where copy_id = 7;
+update copy set book_id = 4 where copy_id = 8;
 
 update copy set borrower_id = 1 where copy_id = 1;
 update copy set borrower_id = 3 where copy_id = 2;

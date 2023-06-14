@@ -189,8 +189,8 @@ public class LibraryController {
         }
 
         borrowerRepository.delete(borrower); // Delete the borrower
-
         model.addAttribute("borrowers", borrowerRepository.findAll());
+
         return "list-borrower";
     }
 
@@ -269,6 +269,7 @@ public class LibraryController {
     }
     @GetMapping("signupcopy")
     public String showSignUpFormCopy(Copy copy, Model model){
+        copy.setStatus("Available"); // Set the status here
         model.addAttribute("books", bookRepository.findAll());
         model.addAttribute("borrowers", borrowerRepository.findAll());
         return "add-copy";
@@ -285,60 +286,67 @@ public class LibraryController {
         return "redirect:listcopy";
     }
 
-//    @GetMapping("updateborrower")
-//    public String showUpdateMainFormBorrower(Model model) {
-//        model.addAttribute("borrowers", borrowerRepository.findAll());
-//        return "choose-borrower-to-update";
-//    }
-//
-//
-//    @GetMapping("editborrower/{id}")
-//    public String showUpdateFormBorrower(@PathVariable("id") long id, Model model) {
-//        Borrower borrower = borrowerRepository.findById((int) id)
-//                .orElseThrow(() -> new IllegalArgumentException("Invalid borrower Id:" + id));
-//        model.addAttribute("borrower", borrower);
-//        return "update-borrower";
-//    }
-//
-//
-//    @PostMapping("updateborrower/{id}")
-//    public String updateBorrower(@PathVariable("id") long id, @Valid Borrower borrower, BindingResult result, Model model) {
-//        if (result.hasErrors()) {
-//            borrower.setBorrowerId((int) id);
-//            return "update-borrower";
-//        }
-//
-//        model.addAttribute("borrowers", borrowerRepository.findAll());
-//        borrowerRepository.save(borrower);
-//        return "list-borrower";
-//    }
-//
-//    @GetMapping("deleteborrower")
-//    public String showDeleteMainFormBorrower(Model model) {
-//        model.addAttribute("borrowers", borrowerRepository.findAll());
-//        return "choose-borrower-to-delete";
-//    }
-//
-//
-//    @GetMapping("deleteborrower/{id}")
-//    public String deleteBorrower(@PathVariable("id") long id, Model model) {
-//        Borrower borrower = borrowerRepository.findById((int) id)
-//                .orElseThrow(() -> new IllegalArgumentException("Invalid borrower Id:" + id));
-//
-//        List<Copy> copy = borrower.getCopy(); // Get the books associated with the borrower
-//
-//        // Remove the borrower from the books
-//        for (Copy copies : copy) {
-//            copies.setBorrower(null);
-//            copyRepository.save(copies);
-//        }
-//
-//        borrowerRepository.delete(borrower); // Delete the borrower
-//
-//        model.addAttribute("borrowers", borrowerRepository.findAll());
-//        return "list-borrower";
-//    }
+    @GetMapping("updatecopy")
+    public String showUpdateMainFormCopy(Model model) {
+        model.addAttribute("copies", copyRepository.findAll());
+        return "choose-copy-to-update";
+    }
 
+
+    @GetMapping("editcopy/{id}")
+    public String showUpdateFormCopy(@PathVariable("id") long id, Model model) {
+        Copy copy = copyRepository.findById((int) id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid copy Id:" + id));
+        model.addAttribute("books", bookRepository.findAll());
+        model.addAttribute("borrowers", borrowerRepository.findAll());
+        model.addAttribute("copy", copy);
+        return "update-copy";
+    }
+
+
+    @PostMapping("updatecopy/{id}")
+    public String updateCopy(@PathVariable("id") long id, @Valid Copy copy, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            copy.setCopyId((int) id);
+            return "update-copy";
+        }
+
+        model.addAttribute("copies", copyRepository.findAll());
+        copyRepository.save(copy);
+        return "list-copy";
+    }
+
+    @GetMapping("endloan/{id}")
+    public String endLoan(@PathVariable("id") long id, Model model) {
+        Copy copy = copyRepository.findById((int) id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid copy Id:" + id));
+
+        copy.setStatus("Available");
+        copy.setStartDate(null);
+        copy.setEndDate(null);
+        copy.setBorrower(null);
+        copyRepository.save(copy);
+        model.addAttribute("copies", copyRepository.findAll());
+
+        return "list-copy";
+    }
+
+    @GetMapping("deletecopy")
+    public String showDeleteMainFormCopy(Model model) {
+        model.addAttribute("copies", copyRepository.findAll());
+        return "choose-copy-to-delete";
+    }
+
+
+    @GetMapping("deletecopy/{id}")
+    public String deleteCopy(@PathVariable("id") long id, Model model) {
+        Copy copy = copyRepository.findById((int) id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid copy Id:" + id));
+
+
+        copyRepository.delete(copy); // Delete the copy
+        model.addAttribute("copies", copyRepository.findAll());
+
+        return "list-copy";
+    }
 }
-
-

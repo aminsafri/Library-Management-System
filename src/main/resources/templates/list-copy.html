@@ -32,8 +32,8 @@
     <tr th:each="copy : ${copies}">
       <td><span th:text="${copy.copyId}"> </span></td>
       <td><span th:text="${copy.book?.bookId}"> </span></td>
-      <td><span th:text="${copy.startDate}"> </span></td>
-      <td><span th:text="${copy.endDate}"> </span></td>
+      <td><span th:text="${#dates.format(copy.startDate, 'yyyy-MM-dd')}"></span></td>
+      <td><span th:text="${#dates.format(copy.endDate, 'yyyy-MM-dd')}"></span></td>
       <td><span th:text="${copy.status}"> </span></td>
       <td><span th:text="${copy.borrower?.borrowerId}"></span></td>
       <td><span th:text="${(copy.borrower?.fname ?: '') + ' ' + (copy.borrower?.lname ?: '')}"></span></td>
