@@ -32,10 +32,11 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(int employeeId, String fname, String lname) {
+    public Employee(int employeeId, String fname, String lname, Section section) {
         this.employeeId = employeeId;
         this.fname = fname;
         this.lname = lname;
+        this.section = (Set<Section>) section;
     }
 
     public int getEmployeeId() {

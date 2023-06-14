@@ -1,13 +1,7 @@
 package com.project.library.controller;
 
-import com.project.library.model.Book;
-import com.project.library.model.Borrower;
-import com.project.library.model.Copy;
-import com.project.library.model.Section;
-import com.project.library.repository.BookRepository;
-import com.project.library.repository.BorrowerRepository;
-import com.project.library.repository.CopyRepository;
-import com.project.library.repository.SectionRepository;
+import com.project.library.model.*;
+import com.project.library.repository.*;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,12 +25,15 @@ public class LibraryController {
 
     private final CopyRepository copyRepository;
 
-    public LibraryController(BookRepository bookRepository, SectionRepository sectionRepository, BorrowerRepository borrowerRepository, CopyRepository copyRepository) {
+    private final EmployeeRepository employeeRepository;
+
+    public LibraryController(BookRepository bookRepository, SectionRepository sectionRepository, BorrowerRepository borrowerRepository, CopyRepository copyRepository, EmployeeRepository employeeRepository) {
 
         this.bookRepository = bookRepository;
         this.sectionRepository = sectionRepository;
         this.borrowerRepository = borrowerRepository;
         this.copyRepository = copyRepository;
+        this.employeeRepository = employeeRepository;
     }
 
     @GetMapping("list")
@@ -348,5 +345,29 @@ public class LibraryController {
         model.addAttribute("copies", copyRepository.findAll());
 
         return "list-copy";
+    }
+
+    @GetMapping("listemployee")
+    public String showEmployeeList(Model model) {
+        model.addAttribute("employee", employeeRepository.findAll());
+        return "list-employee";
+    }
+
+    @GetMapping("signupemployee")
+    public String showSignUpFormEmployee(Model model) {
+        model.addAttribute("employee", new Employee());
+        return "add-employee";
+    }
+
+
+    @PostMapping("addemployee")
+    public String addEmployee(@Valid Employee employee, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("employee", employee);
+            return "add-employee";
+        }
+
+        employeeRepository.save(employee);
+        return "redirect:listemployee";
     }
 }

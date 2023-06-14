@@ -9,4 +9,5 @@ import org.springframework.data.repository.query.Param;
 public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
     @Query(value = "SELECT * FROM employees where employee_id = :id",nativeQuery = true)
     Section findEmployeeById(@Param("id") int id);
+
 }

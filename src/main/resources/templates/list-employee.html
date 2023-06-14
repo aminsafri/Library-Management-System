@@ -14,7 +14,7 @@
 
 <body>
 <div class="container">
-  <h1 class="text-center">Borrowers</h1>
+  <h1 class="text-center">Employees</h1>
   <a class="btn btn-primary mb-3" href="#" th:href="@{/}">Main Menu</a>
   <table class="table">
     <thead class="table-dark">
@@ -22,7 +22,6 @@
       <th>Employee Id</th>
       <th>First Name</th>
       <th>Last Name</th>
-      <th>Section id</th>
     </tr>
     </thead>
     <tbody>
@@ -30,7 +29,6 @@
       <td><span th:text="${employee.employeeId}"> </span></td>
       <td><span th:text="${employee.fname}"> </span></td>
       <td><span th:text="${employee.lname}"> </span></td>
-
     </tr>
     </tbody>
   </table>
