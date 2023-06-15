@@ -1,6 +1,7 @@
 package com.project.library.model;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -16,10 +17,10 @@ public class Copy {
     @JoinColumn(name = "book_id")
     private Book book;
 
-    @Column(name = "start_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startDate;
 
-    @Column(name = "end_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
 
     @Column(name = "status")

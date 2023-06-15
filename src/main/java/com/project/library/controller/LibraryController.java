@@ -177,13 +177,13 @@ public class LibraryController {
         Borrower borrower = borrowerRepository.findById((int) id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid borrower Id:" + id));
 
-        List<Copy> copy = borrower.getCopy(); // Get the books associated with the borrower
+        List<Copy> copy = borrower.getCopy();
 
-        // Remove the borrower from the books
         for (Copy copies : copy) {
             copies.setBorrower(null);
             copyRepository.save(copies);
         }
+
 
         borrowerRepository.delete(borrower); // Delete the borrower
         model.addAttribute("borrowers", borrowerRepository.findAll());
@@ -251,10 +251,16 @@ public class LibraryController {
         Section section = sectionRepository.findById((int) id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid section Id:" + id));
 
+        List<Book> book = section.getBooks();
+
+        for (Book books : book) {
+            books.setSection(null);
+            bookRepository.save(books);
+        }
         sectionRepository.delete(section);
         model.addAttribute("sections", sectionRepository.findAll());
 
-        return "list-section";
+        return "index";
     }
 
     //copy
