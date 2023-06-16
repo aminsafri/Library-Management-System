@@ -200,7 +200,8 @@ public class LibraryController {
     }
 
     @GetMapping("signupsection")
-    public String showSectionSignUpForm(Section section){
+    public String showSectionSignUpForm(Model model){
+        model.addAttribute("section", new Section());
         return "add-section";
     }
 
@@ -211,7 +212,7 @@ public class LibraryController {
         }
 
         sectionRepository.save(section);
-        return "redirect:list";
+        return "redirect:listsection";
     }
 
     @GetMapping("updatesection")
