@@ -53,21 +53,19 @@
                     <td colspan="2"> No Copies Available</td>
                 </tr>
                 <tr th:each="copy : ${copies}">
-                    <td><span th:text="${copy.copyId}"> </span></td>
-                    <td><span th:text="${copy.book?.bookId}"> </span></td>
+                    <td><span th:text="${copy.copyId}"></span></td>
+                    <td><span th:text="${copy.book?.bookId}"></span></td>
                     <td><span th:text="${#dates.format(copy.startDate, 'yyyy-MM-dd')}"></span></td>
                     <td><span th:text="${#dates.format(copy.endDate, 'yyyy-MM-dd')}"></span></td>
                     <td><span th:text="${copy.status}"> </span></td>
                     <td><span th:text="${copy.borrower?.borrowerId}"></span></td>
-                    <td><span th:text="${(copy.borrower?.fname ?: '') + ' ' + (copy.borrower?.lname ?: '')}"></span>
-                    </td>
+                    <td><span th:text="${(copy.borrower?.fname ?: '') + ' ' + (copy.borrower?.lname ?: '')}"></span></td>
                     <td><a th:href="@{/books/deletecopy/{id}(id=${copy.copyId})}"
                            class="btn btn-danger"><i class="fas fa-user-times ml-2"></i></a></td>
                 </tr>
                 </tbody>
             </table>
         </div>
-
     </div>
 </div>
 
