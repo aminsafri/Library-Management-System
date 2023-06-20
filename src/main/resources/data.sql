@@ -11,10 +11,10 @@ insert into borrower(first_name, last_name, email, phone_number) values ('Wan', 
 insert into borrower(first_name, last_name, email, phone_number) values ('Nik', 'Adam', 'nik@gmail.com', 01137566);
 insert into borrower(first_name, last_name, email, phone_number) values ('Abu', 'Bakar', 'abu@gmail.com', 01169996);
 
-INSERT INTO copy (start_date, end_date, status) VALUES ('2023-08-21', '2023-09-21', 'Not Available');
-INSERT INTO copy (start_date, end_date, status) VALUES ('2023-08-25', '2023-09-25', 'Not Available');
-INSERT INTO copy (start_date, end_date, status) VALUES ('2023-08-30', '2023-09-30', 'Not Available');
-INSERT INTO copy (start_date, end_date, status) VALUES ('2023-09-05', '2023-10-05', 'Not Available');
+INSERT INTO copy (start_date, end_date, status) VALUES ('2023-06-21', '2023-07-21', 'Not Available');
+INSERT INTO copy (start_date, end_date, status) VALUES ('2023-06-25', '2023-07-25', 'Not Available');
+INSERT INTO copy (start_date, end_date, status) VALUES ('2023-06-30', '2023-07-30', 'Not Available');
+INSERT INTO copy (start_date, end_date, status) VALUES ('2023-06-05', '2023-07-05', 'Not Available');
 
 insert into copy(start_date, end_date, status) values (null, null, 'Available');
 insert into copy(start_date, end_date, status) values (null, null, 'Available');
