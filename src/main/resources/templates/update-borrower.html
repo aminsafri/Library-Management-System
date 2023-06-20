@@ -35,7 +35,7 @@
   <div class="card">
     <div class="card-body">
       <div class="col-md-8">
-        <form action="#" th:action="@{/books/updateborrower/{id}(id=${borrower.borrowerId})}"
+        <form action="#" th:action="@{/borrowers/updateborrower/{id}(id=${borrower.borrowerId})}"
               th:object="${borrower}" th:method="post">
           <div class="row">
             <div class="form-group col-md-6">

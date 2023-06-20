@@ -21,7 +21,7 @@
                 <a class="nav-link" href="#" th:href="@{/}">Main Menu</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/books/listborrower" th:href="@{/books/listborrower}">Back to Borrower
+                <a class="nav-link" href="/borrowers/listborrower" th:href="@{/borrowers/listborrower}">Back to Borrower
                     List</a>
             </li>
         </ul>
@@ -32,7 +32,7 @@
     <h3>Add Borrower</h3>
     <div class="card">
         <div class="card-body">
-            <form action="#" th:action="@{/books/addborrower}" th:object="${borrower}" method="post">
+            <form action="#" th:action="@{/borrowers/addborrower}" th:object="${borrower}" method="post">
             <div class="row">
                     <div class="form-group col-md-8">
                         <label for="fname" class="col-form-label">First Name</label>
