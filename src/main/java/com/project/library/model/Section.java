@@ -20,9 +20,9 @@ public class Section {
     @Column(name = "location")
     private String location;
 
-//    @ManyToMany(mappedBy = "section", fetch = FetchType.LAZY)
-//    private Set<Employee> employees = new HashSet<>();
-//
+    @ManyToMany(mappedBy = "section", fetch = FetchType.LAZY)
+    private Set<Employee> employee = new HashSet<>();
+
     @OneToMany(mappedBy = "section", cascade = CascadeType.ALL)
     private List<Book> books;
 
