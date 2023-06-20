@@ -101,7 +101,7 @@ public class LibraryController {
 
         List<Copy> copy = book.getCopy(); // Get the books associated with the borrower
 
-        // Remove the borrower from the books
+        // Rem1ove the borrower from the books
         for (Copy copies : copy) {
             copies.setBorrower(null);
             copyRepository.save(copies);
