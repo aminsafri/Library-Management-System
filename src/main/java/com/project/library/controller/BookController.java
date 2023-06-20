@@ -20,7 +20,7 @@ import java.util.List;
 @RequestMapping("/books")
 public class BookController {
 
-    //Repository
+    //Repository repo
     private final BookRepository bookRepository;
     private final SectionRepository sectionRepository;
     private final CopyRepository copyRepository;
