@@ -23,7 +23,7 @@
         <a class="nav-link" href = "#" th:href ="@{/}">Main Menu</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/books/listcopy" th:href="@{/books/listcopy}">Back Copy List</a>
+        <a class="nav-link" href="/copies/listcopy" th:href="@{/copies/listcopy}">Back Copy List</a>
       </li>
     </ul>
   </div>
@@ -33,7 +33,7 @@
   <h3> Add Book </h3>
   <div class="card">
     <div class="card-body">
-      <form action="#" th:action="@{/books/addcopy}" th:object="${copy}" method="post">
+      <form action="#" th:action="@{/copies/addcopy}" th:object="${copy}" method="post">
 
         <div class="form-group col-md-8">
           <label class="col-form-label">ISBN</label>
@@ -53,7 +53,6 @@
           <div class="container">
             <input type="submit" id="submitButton" class="btn btn-success" th:value="Save">
             <input type="reset" id="resetButton" class="btn btn-danger" th:value="Reset"/>
-          </div>
         </div>
       </form>
     </div>

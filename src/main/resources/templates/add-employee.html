@@ -21,7 +21,7 @@
         <a class="nav-link" href="#" th:href="@{/}">Main Menu</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/books/listemployee" th:href="@{/books/listemployee}">Back to Employee
+        <a class="nav-link" href="/employees/listemployee" th:href="@{/employees/listemployee}">Back to Employee
           List</a>
       </li>
     </ul>
@@ -32,7 +32,7 @@
   <h3>Add Employee</h3>
   <div class="card">
     <div class="card-body">
-      <form action="#" th:action="@{/books/addemployee}" th:object="${employees}" method="post">
+      <form action="#" th:action="@{/employees/addemployee}" th:object="${employees}" method="post">
         <div class="row">
           <div class="form-group col-md-8">
             <label for="fname" class="col-form-label">First Name</label>

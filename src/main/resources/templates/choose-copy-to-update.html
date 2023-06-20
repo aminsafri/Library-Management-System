@@ -57,9 +57,9 @@
                     <td><span th:text="${copy.status}"> </span></td>
                     <td><span th:text="${copy.borrower?.borrowerId}"></span></td>
                     <td><span th:text="${(copy.borrower?.fname ?: '') + ' ' + (copy.borrower?.lname ?: '')}"></span></td>
-                    <td><a th:href="@{/books/editcopy/{id}(id=${copy.copyId})}"
+                    <td><a th:href="@{/copies/editcopy/{id}(id=${copy.copyId})}"
                            class="btn btn-success"><i class="fas fa-user-edit ml-2"></i></a></td>
-                    <td><a th:href="@{/books/endloan/{id}(id=${copy.copyId})}" class="btn btn-danger">
+                    <td><a th:href="@{/copies/endloan/{id}(id=${copy.copyId})}" class="btn btn-danger">
                             <i class="fas fa-user-times ml-2"></i></a></td>
                 </tr>
                 </tbody>
