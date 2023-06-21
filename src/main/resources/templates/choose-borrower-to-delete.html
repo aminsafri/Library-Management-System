@@ -52,8 +52,9 @@
           <td><span th:text="${borrower.lname}"> </span></td>
           <td><span th:text="${borrower.email}"> </span></td>
           <td><span th:text="${borrower.phonenumber}"> </span></td>
-          <td><a th:href="@{/borrowers/deleteborrower/{id}(id=${borrower.borrowerId})}"
-                 class="btn btn-danger"><i class="fas fa-user-times ml-2"></i>Delete</a></td>
+          <td><a th:href="@{/borrowers/deleteborrower/{id}(id=${borrower.borrowerId})}" class="btn btn-danger"
+                 onclick="return confirm('Are you sure you want to delete this borrower?')">
+            <i class="fas fa-user-times ml-2"></i>Delete</a></td>
         </tr>
         </tbody>
       </table>

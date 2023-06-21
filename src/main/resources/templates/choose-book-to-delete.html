@@ -54,8 +54,9 @@
           <td><span th:text="${book.bookName}"></span></td>
           <td><span th:text="${book.author}"></span></td>
           <td th:text="${book.section?.sectionName}"></td>
-          <td><a th:href="@{/books/delete/{id}(id=${book.bookId})}"
-                 class="btn btn-danger"><i class="fas fa-trash ml-2"></i>Delete</a></td>
+          <td><a th:href="@{/books/delete/{id}(id=${book.bookId})}" class="btn btn-danger"
+                 onclick="return confirm('Are you sure you want to delete this book?')">
+            <i class="fas fa-trash ml-2"></i>Delete</a></td>
         </tr>
         </tbody>
       </table>
