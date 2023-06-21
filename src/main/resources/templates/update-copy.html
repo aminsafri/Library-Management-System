@@ -11,6 +11,7 @@
             border-radius: 8px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
+
         .form-group {
             padding-bottom: 10px;
         }
@@ -27,60 +28,72 @@
                 <a class="nav-link" href="#" th:href="@{/}">Main Menu</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/copies/listcopy" th:href="@{/copies/listcopy}">Back to Borrowers List</a>
+                <a class="nav-link" href="/copies/listcopy" th:href="@{/copies/listcopy}">Back to Copy List</a>
             </li>
         </ul>
     </div>
-</nav><br>
+</nav>
+<br>
 <div class="container my-5">
     <h3> Update Copy</h3>
     <div class="card">
         <div class="card-body">
             <div class="col-md-8">
-                <form action="#" th:action="@{/copies/updatecopy/{id}(id=${copy.copyId})}" th:object="${copy}" th:method="post">
+                <form action="#" th:action="@{/copies/updatecopy/{id}(id=${copy.copyId})}" th:object="${copy}"
+                      th:method="post">
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <div class="d-flex">
+                            <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="copyId" class="col-form-label">Copy ID</label>
-                                    <input type="text" th:field="*{copyId}" class="form-control" id="copyId" placeholder="Copy ID" readonly>
-                                    <span th:if="${#fields.hasErrors('copyId')}" th:errors="*{copyId}" class="text-danger"></span>
+                                    <input type="text" th:field="*{copyId}" class="form-control" id="copyId"
+                                           placeholder="Copy ID" readonly>
+                                    <span th:if="${#fields.hasErrors('copyId')}" th:errors="*{copyId}"
+                                          class="text-danger"></span>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
                                     <label class="col-form-label">ISBN</label>
-                                    <select th:field="*{book}">
-                                        <option value="">Choose ISBN</option>
-                                        <option th:each="d: ${books}" th:value="${d.bookId}" th:text="${d.bookId}"></option>
+                                    <select th:field="*{book}" class="form-select">
+                                        <option value="">Choose Book ID</option>
+                                        <option th:each="d: ${books}" th:value="${d.bookId}"
+                                                th:text="${d.bookId}"></option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="d-flex">
+                            <div class="row">
                                 <div class="form-group col-md-6">
                                     <label for="startDate">Start Date:</label>
-                                    <input type="date" th:field="*{startDate}" class="form-control" id="startDate" placeholder="Start Date">
-                                    <span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" class="text-danger"></span>                                </div>
+                                    <input type="date" th:field="*{startDate}" class="form-control" id="startDate"
+                                           placeholder="Start Date">
+                                    <span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"
+                                          class="text-danger"></span></div>
                                 <div class="form-group col-md-6">
                                     <label for="endDate">End Date:</label>
-                                    <input type="date" th:field="*{endDate}" class="form-control" id="endDate" placeholder="End Date">
-                                    <span th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}" class="text-danger"></span>
+                                    <input type="date" th:field="*{endDate}" class="form-control" id="endDate"
+                                           placeholder="End Date">
+                                    <span th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"
+                                          class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="status" class="col-form-label">Status</label>
-                                <input type="text" th:field="*{status}" class="form-control" id="status" placeholder="Status">
-                                <span th:if="${#fields.hasErrors('status')}" th:errors="*{status}" class="text-danger"></span>
+                                <input type="text" th:field="*{status}" class="form-control" id="status"
+                                       placeholder="Status">
+                                <span th:if="${#fields.hasErrors('status')}" th:errors="*{status}"
+                                      class="text-danger"></span>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label">Borrower</label>
                                 <select th:field="*{borrower}">
                                     <option value="">Choose Borrower</option>
-                                    <option th:each="d: ${borrowers}" th:value="${d.borrowerId}" th:text="${d.borrowerId}"></option>
+                                    <option th:each="d: ${borrowers}" th:value="${d.borrowerId}"
+                                            th:text="${d.borrowerId}"></option>
                                 </select>
                             </div>
-                            <div class="container">
-                                <input type="submit" class="btn btn-success" value="Update Copy"/>
-                                <input type="reset" id="resetButton" class="btn btn-danger" value="Reset">
-                            </div>
+                        </div>
+                        <div class="container">
+                            <input type="submit" class="btn btn-success" value="Update Copy"/>
+                            <input type="reset" id="resetButton" class="btn btn-danger" value="Reset">
                         </div>
                     </div>
                 </form>

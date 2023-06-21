@@ -56,10 +56,13 @@
                     <td><span th:text="${copy.status}"> </span></td>
                     <td><span th:text="${copy.borrower?.borrowerId}"></span></td>
                     <td><span th:text="${(copy.borrower?.fname ?: '') + ' ' + (copy.borrower?.lname ?: '')}"></span></td>
-                    <td><a th:href="@{/copies/editcopy/{id}(id=${copy.copyId})}"
+                    <td><a th:href="@{/copies/editloan/{id}(id=${copy.copyId})}"
+                           class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i>Start Loan</a>
+                    <a th:href="@{/copies/editcopy/{id}(id=${copy.copyId})}"
                            class="btn btn-success"><i class="fas fa-user-edit ml-2"></i>Update</a>
-                    <a th:href="@{/copies/endloan/{id}(id=${copy.copyId})}" class="btn btn-danger">
-                            <i class="fas fa-user-times ml-2"></i>Update</a></td>
+                    <a th:href="@{/copies/endloan/{id}(id=${copy.copyId})}" class="btn btn-danger"
+                       onclick="return confirm('Are you sure you want to end loan of this copy?')">
+                            <i class="fas fa-user-times ml-2"></i>End Loan</a></td>
                 </tr>
                 </tbody>
             </table>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Start Loan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    .card {
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+      padding-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark d-flex">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#" th:href="@{/}">Main Menu</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/copies/listcopy/" th:href="@{/copies/listcopy}">Back to Copy List</a>
+      </li>
+    </ul>
+  </div>
+</nav><br>
+<div class="container my-5">
+  <h3>Start Loan</h3>
+  <div class="card">
+    <div class="card-body">
+      <div class="col-md-8">
+        <form action="#" th:action="@{/copies/startloan/{id}(id=${copy.copyId})}" th:object="${copy}" th:method="post">
+          <div class="row">
+            <div class="form-group col-md-6">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="copyId" class="col-form-label">Copy ID</label>
+                  <input type="text" th:field="*{copyId}" class="form-control" id="copyId" placeholder="Copy ID" readonly>
+                  <span th:if="${#fields.hasErrors('copyId')}" th:errors="*{copyId}" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="col-form-label">ISBN</label>
+                  <input  type="text" th:field="*{book}" class="form-control" id="bookId" placeholder="Copy ID" readonly>
+                    <span th:each="d: ${books}" th:value="${d.bookId}"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="startDate">Start Date:</label>
+                  <input type="date" th:field="*{startDate}" class="form-control" id="startDate" placeholder="Start Date">
+                  <span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" class="text-danger"></span>                                </div>
+                <div class="form-group col-md-6">
+                  <label for="endDate">End Date:</label>
+                  <input type="date" th:field="*{endDate}" class="form-control" id="endDate" placeholder="End Date">
+                  <span th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}" class="text-danger"></span>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label class="col-form-label">Borrower</label>
+                <select th:field="*{borrower}" class="form-select">
+                  <option value="">Choose Borrower</option>
+                  <option th:each="d: ${borrowers}" th:value="${d.borrowerId}" th:text="${d.borrowerId}"></option>
+                </select>
+              </div>
+            </div>
+            <div class="container">
+              <input type="submit" class="btn btn-success" value="Start Loan"/>
+              <input type="reset" id="resetButton" class="btn btn-danger" value="Reset">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+</html>

@@ -95,6 +95,26 @@ public class CopyController {
 
         return "list-copy";
     }
+    @GetMapping("editloan/{id}")
+    public String showLoanFormCopy(@PathVariable("id") long id, Model model) {
+        Copy copy = copyRepository.findById((int) id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid copy Id:" + id));
+        model.addAttribute("books", bookRepository.findAll());
+        model.addAttribute("borrowers", borrowerRepository.findAll());
+        model.addAttribute("copy", copy);
+        return "start-loan";
+    }
+    @PostMapping("startloan/{id}")
+    public String startLoan(@PathVariable("id") long id, @Valid Copy copy, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            copy.setCopyId((int) id);
+            return "start-loan";
+        }
+        copy.setStatus("Not Available");
+        model.addAttribute("copies", copyRepository.findAll());
+        copyRepository.save(copy);
+        return "list-copy";
+    }
 
     @GetMapping("deletecopy")
     public String showDeleteMainFormCopy(Model model) {
