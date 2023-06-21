@@ -67,7 +67,7 @@
 
             <div class="form-group col-md-8">
               <label class="col-form-label">Section</label>
-              <select th:field="*{section}">
+              <select th:field="*{section}" class="form-select">
                 <option value=""> Choose Book Section.. </option>
                 <option th:each="d: ${sections}" th:value="${d.sectionId}"
                         th:text="${d.sectionName}"/>

@@ -6,10 +6,7 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,15 +22,11 @@ public class LibraryController {
 
     private final CopyRepository copyRepository;
 
-    private final EmployeeRepository employeeRepository;
-
-    public LibraryController(BookRepository bookRepository, SectionRepository sectionRepository, BorrowerRepository borrowerRepository, CopyRepository copyRepository, EmployeeRepository employeeRepository) {
-
+    public LibraryController(BookRepository bookRepository, SectionRepository sectionRepository, BorrowerRepository borrowerRepository, CopyRepository copyRepository) {
         this.bookRepository = bookRepository;
         this.sectionRepository = sectionRepository;
         this.borrowerRepository = borrowerRepository;
         this.copyRepository = copyRepository;
-        this.employeeRepository = employeeRepository;
     }
 
 //    @GetMapping("list")
