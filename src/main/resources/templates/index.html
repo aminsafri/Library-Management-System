@@ -20,6 +20,7 @@
     .dropdown-menu {
       width: 300px;
       left: auto;
+      text-align: center; /* Center align the dropdown menu */
     }
 
     .dropdown-button {
@@ -34,7 +35,7 @@
   <div class="banner"> <!-- Add a wrapper div for the banner -->
     <h1>Library Management</h1>
   </div>
-  <div class="d-flex">
+  <div class="d-flex justify-content-center"> <!-- Center align the buttons -->
     <div class="dropdown">
       <button class="btn btn-primary dropdown-toggle dropdown-button" type="button" id="staffDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Employee
@@ -59,7 +60,7 @@
       </div>
     </div>
   </div>
-  <div class="d-flex">
+  <div class="d-flex justify-content-center"> <!-- Center align the buttons -->
     <div class="dropdown">
       <button class="btn btn-primary dropdown-toggle dropdown-button" type="button" id="borrowerDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Borrower
@@ -76,10 +77,10 @@
         Copy
       </button>
       <div class="dropdown-menu" aria-labelledby="copyDropdown">
-        <a class="dropdown-item" href="/copies/listcopy" th:href="@{/copies/listcopy}">Show copy List</a>
-        <a class="dropdown-item" href="/copies/signupcopy" th:href="@{/copies/signupcopy}">Add copy</a>
-        <a class="dropdown-item" href="/copies/updatecopy" th:href="@{/copies/updatecopy}">Update copy</a>
-        <a class="dropdown-item" href="/copies/deletecopy" th:href="@{/copies/deletecopy}">Delete copy</a>
+        <a class="dropdown-item" href="/copies/listcopy" th:href="@{/copies/listcopy}">Show Copy List</a>
+        <a class="dropdown-item" href="/copies/signupcopy" th:href="@{/copies/signupcopy}">Add Copy</a>
+        <a class="dropdown-item" href="/copies/updatecopy" th:href="@{/copies/updatecopy}">Update Copy</a>
+        <a class="dropdown-item" href="/copies/deletecopy" th:href="@{/copies/deletecopy}">Delete Copy</a>
       </div>
     </div>
     <div class="dropdown">
