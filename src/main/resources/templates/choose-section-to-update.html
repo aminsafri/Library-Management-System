@@ -46,7 +46,7 @@
                 <tr th:each="section : ${sections}">
                     <td th:text="${section.sectionId}"></td>
                     <td th:text="${section.sectionName}"></td>
-                    <td><a th:href="@{/books/editsection/{id}(id=${section.sectionId})}"
+                    <td><a th:href="@{/sections/editsection/{id}(id=${section.sectionId})}"
                            class="btn btn-success"><i class="fas fa-edit ml-2"></i>Update</a></td>
                 </tr>
                 </tbody>

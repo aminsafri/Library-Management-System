@@ -50,8 +50,9 @@
                 <tr th:each="section : ${sections}">
                     <td><span th:text="${section.sectionId}"></span></td>
                     <td><span th:text="${section.sectionName}"></span></td>
-                    <td><a th:href="@{/books/deletesection/{id}(id=${section.sectionId})}"
-                           class="btn btn-danger"><i class="fas fa-trash ml-2"></i>Delete</a></td>
+                    <td><a th:href="@{/sections/deletesection/{id}(id=${section.sectionId})}"
+                           class="btn btn-danger"onclick="return confirm('Are you sure you want to delete this employee?')">
+                        <i class="fas fa-trash ml-2"></i>Delete</a></td>
                 </tr>
                 </tbody>
             </table>

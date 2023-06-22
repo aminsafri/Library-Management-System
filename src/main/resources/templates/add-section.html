@@ -29,7 +29,7 @@
                 <a class="nav-link" href="#" th:href="@{/}">Main Menu</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/books/listsection" th:href="@{/books/listsection}">Back to Books List</a>
+                <a class="nav-link" href="/sections/listsection" th:href="@{/sections/listsection}">Back to Books List</a>
             </li>
         </ul>
     </div>
@@ -38,7 +38,7 @@
     <h3> Add Section </h3>
     <div class="card">
         <div class="card-body">
-            <form action="#" th:action="@{/books/addsection}" th:object="${section}" method="post">
+            <form action="#" th:action="@{/sections/addsection}" th:object="${section}" method="post">
                 <div class="row">
                     <div class="form-group col-md-8">
                         <label for="sectionName" class="col-form-label">Section Name</label>
