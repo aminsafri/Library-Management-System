@@ -82,5 +82,11 @@
   </div>
 </div>
 </body>
-</html>
+<script>
+  // Get the current date
+  var currentDate = new Date().toISOString().split('T')[0];
+
+  // Set the initial value of the input field
+  document.getElementById("startDate").value = currentDate;
+</script>
 </html>
