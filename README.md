@@ -1,5 +1,7 @@
 # Library Management System
 
+![Database Design](image.png)
+
 A web-based library management system developed using the **Spring Framework** and **Oracle DBMS** to streamline library operations, enhance user experience, and manage resources effectively.
 
 ## Table of Contents
