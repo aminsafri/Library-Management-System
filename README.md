@@ -10,8 +10,6 @@ A web-based library management system developed using the **Spring Framework** a
 - [Technologies Used](#technologies-used)
 - [Setup and Installation](#setup-and-installation)
 - [Project Structure](#project-structure)
-- [Contributors](#contributors)
-- [License](#license)
 
 ## Introduction
 The project aims to modernize library operations by providing an intuitive, secure, and efficient platform for managing library resources. It includes a comprehensive database design, a user-friendly interface, and follows the Model-View-Controller (MVC) architecture.
